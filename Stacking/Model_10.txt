@@ -1,0 +1,34 @@
+output of base layer has been addded to the original features and is ready to be used in meta layer
+BAG_train
+[[1028    0]
+ [   0 1028]]
+TP =  1028
+TN =  1028
+FP =  0
+FN =  0
+Recall/Sensitivity = 1.00000
+Specificity = 1.00000
+Accuracy_Balanced = 1.00000
+Overall_Accuracy = 1.00000
+FPR_bag = 0.00000
+FNR_bag = 0.00000
+Precision = 1.00000
+F1 = 1.00000
+MCC = 1.00000
+
+BAG_test
+[[433  75]
+ [168 340]]
+TP =  340
+TN =  433
+FP =  75
+FN =  168
+Recall/Sensitivity = 0.66929
+Specificity = 0.85236
+Accuracy_Balanced = 0.76083
+Overall_Accuracy = 0.76083
+FPR_bag = 0.14764
+FNR_bag = 0.33071
+Precision = 0.81928
+F1 = 0.73673
+MCC = 0.53062

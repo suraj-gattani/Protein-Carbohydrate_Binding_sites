@@ -1,0 +1,42 @@
+searched gamma_range
+[3.0517578125e-05, 0.0001220703125, 0.00048828125, 0.001953125, 0.0078125, 0.03125, 0.125, 0.5, 2.0, 8.0]
+The best parameters for coarse search for gamma are {'C': 8.0, 'gamma': 0.00048828125} with a score of 1.0000
+
+
+searched gamma_range
+[0.0001220703125, 0.0001451668841556056, 0.00017263349150062197, 0.0002052969763803014, 0.000244140625, 0.0002903337683112112, 0.00034526698300124393, 0.0004105939527606028, 0.00048828125, 0.0005806675366224224, 0.0006905339660024879, 0.0008211879055212056, 0.0009765625, 0.0011613350732448448, 0.0013810679320049757, 0.0016423758110424111, 0.001953125]
+The best parameters for fine search for gamma are {'C': 2.8284271247461903, 'gamma': 0.0008211879055212056} with a score of 1.0000
+
+
+svc_predicted_train
+[[1028    0]
+ [   0 1028]]
+TP =  1028
+TN =  1028
+FP =  0
+FN =  0
+Recall/Sensitivity = 1.00000
+Specificity = 1.00000
+Accuracy_Balanced = 1.00000
+Overall_Accuracy = 1.00000
+FPR_bag = 0.00000
+FNR_bag = 0.00000
+Precision = 1.00000
+F1 = 1.00000
+MCC = 1.00000
+svc_predicted_test
+[[446  62]
+ [165 343]]
+TP =  343
+TN =  446
+FP =  62
+FN =  165
+Recall/Sensitivity = 0.67520
+Specificity = 0.87795
+Accuracy_Balanced = 0.77657
+Overall_Accuracy = 0.77657
+FPR_bag = 0.12205
+FNR_bag = 0.32480
+Precision = 0.84691
+F1 = 0.75137
+MCC = 0.56488
