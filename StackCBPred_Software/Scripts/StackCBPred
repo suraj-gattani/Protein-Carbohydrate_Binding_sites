@@ -1,0 +1,75 @@
+#!/bin/sh
+#purpose: run StackCBPred
+#author: Suraj Gattani
+
+dispredict_path="/home/presentation/Avdesh/RunDispredict/DisPredict_v2.0_StackCBPred/Software"
+spider3_path="/home/avdesh/Suraj/SPIDER3-Single_np"
+software_path="/home/avdesh/Suraj/StackCBPred_Software"
+
+printf "\n-------------- StackCBPred Start------------------\n";
+
+file=$1;
+printf "ID: "$1
+printf "\n"
+mkdir $software_path/Features/$file/
+echo ">$file" > $software_path/Features/$file/$file.fasta;
+echo $2 >> $software_path/Features/$file/$file.fasta;
+
+
+#===========================================================================================================
+		#Run Dispredict to generate 57features
+
+cp $software_path/Features/$file/$file.fasta $dispredict_path/Input/FASTA/$file.fasta
+echo $file > $dispredict_path/Input/id_list.txt
+
+cd $dispredict_path/Scripts/
+
+./run_DisPredict_v2.0
+
+cd $software_path/Scripts/
+cp $dispredict_path/Features/$file/$file.57pfeatures $software_path/Features/$file/$file.57pfeatures
+
+#============================================================================================================
+
+		#Run Spider3
+
+echo ">$file" > $spider3_path/example_data/seq/$file.seq
+echo $2 >> $spider3_path/example_data/seq/$file.seq
+echo "$file ./example_data/seq/$file.seq" > $spider3_path/file_list
+
+cd $spider3_path/
+# /home/avdesh/anaconda3/envs/python2
+#activate=". ../.env/bin/activate"
+
+#export
+
+./impute_script_np.sh
+
+cp $spider3_path/example_data/outputs/$file.i1 $software_path/Features/$file/$file.i1
+
+#============================================================================================================
+
+		#Input File Creation
+echo "$file" > /$software_path/Scripts/id_list.txt;
+
+cd $software_path/Scripts/
+perl feature_file.pl
+
+#=============================================================================================================
+
+		#Windowed File Creation
+
+javac run_script1.java
+java run_script1
+
+#==============================================================================================================
+#Output Prediction
+
+cd $software_path/Input/
+
+python3 Stacking_train.py
+python3 Stacking_combined.py
+
+cp $software_path/Input/Results_train.txt $software_path/Output/$file.train	
+cp $software_path/Input/Results_combined.txt $software_path/Output/$file.combined
+#==============================================================================================================

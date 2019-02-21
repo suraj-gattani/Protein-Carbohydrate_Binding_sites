@@ -1,0 +1,51 @@
+
+**StackCBPRed Software Package**
+
+StackCBPred: A Stacking based Prediction of Carbohydrate-binding Proteins from Sequences
+
+*******************************************************************
+StackCBPred is a software used to predict carbohydrate-binding sites 
+
+Note: This is the linux compatible program. 
+Note: StackCBPred utilizes DisPredict2 and SPIDER3 to extract features. Thus it is required to install DisPredict2 and Spider3 before running StackCBPred.
+
+Availability of the dependent softwares:
+*********************
+Dispredict 2.0 is available at:
+http://cs.uno.edu/~tamjid/Software.html
+
+SPIDER 3.0 is available at:
+http://sparks-lab.org/index.php/Main/Downloads
+
+Setting the PATH of dependent software in the script file (~/StackCBPred_Software/Scripts/StackCBPred):
+
+1) Dispredict_path = "SET PATH to DisPredict2"
+2) Spider3_path = "SET PATH to SPIDER3"
+3) Software path = "SET PATH to StackCBPred software"
+
+************************************************************************************
+Running the software: 
+
+1) cd ~/StackCBPred_Software/Scripts
+
+2) Command to run the software:
+./StackCBPred seq_id sequence
+example:
+./StackCBPred 1a1aa ARDDRDRDRDR
+
+Dependencies: Anaconda3, Java, Perl
+
+***********************************************************************************
+
+After you run the program output will be saved in the Output folder with seq_id.train and seq_id.combined.
+[ Seq_id.train output has been obtained by training on the benchmark dataset only.
+  Seq_id.combined output has been obtained by training on the benchmark, independent test set1 and independent test set2 together]
+  
+***********************************************************************************
+Enjoy !!!
+Cheers !!!
+
+* Corresponding Author: Md Tamjidul Hoque (PI), Email: thoque@uno.edu, tamjidul.hoque@gmail.com
+
+
+
